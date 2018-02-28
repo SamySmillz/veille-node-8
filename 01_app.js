@@ -48,6 +48,7 @@ app.set('view engine', 'ejs'); // générateur de template
 app.get('/:local(en|fr)', function (req, res) {
 	console.log("req.params.local = " + req.params.local)
 	res.cookie('langueChoisie',req.params.local)
+	
 	res.setLocale(req.params.local)
 	console.log(res.__('courriel'))
  res.render('accueil.ejs')  
@@ -60,7 +61,6 @@ app.get('/', function (req, res) {
 console.log("req.cookies.langueChoisie = " + req.cookies.langueChoisie)
  res.render('accueil.ejs')  
  console.log(res.__('courriel'))
- 
   });
 
  
@@ -77,6 +77,12 @@ app.get('/adresse', function (req, res) {
 app.post('/rechercher',  (req, res) => {
 
 })
+
+app.post('/langage',  (req, res) => {
+	// res.cookie('langueChoisie',req.params.local)
+	console.log(res.getLocale(req.params.local))
+})
+
 ////////////////////////////////////////// Route /ajouter
 app.post('/ajouter', (req, res) => {
 console.log('route /ajouter')	
