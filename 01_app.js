@@ -63,7 +63,7 @@ console.log("req.cookies.langueChoisie = " + req.cookies.langueChoisie)
  
   });
 
-
+ 
 
 //////////////////////////////////////////  Route Adresse
 app.get('/adresse', function (req, res) {
